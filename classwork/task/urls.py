@@ -1,7 +1,7 @@
-from django.contrib import admin
-from django.urls import path, include
+from . import views
+from django.urls import path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include('task.url'))
+    path('tasks/', views.TaskListCreateView.as_view()),
+    path('tasks/<int:pk>', views.TaskRetriveUpdateDeleteView.as_view())
 ]
